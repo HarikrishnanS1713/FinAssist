@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinAssist - Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div id="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand-header">
+        <div class="brand-icon">₹</div>
+        <div class="brand-name">FinAssist</div>
+      </div>
+      <ul class="nav-menu">
+        <li>
+          <a href="/dashboard.html" class="nav-link active">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 00-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="/customers.html" class="nav-link">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            Customers
+          </a>
+        </li>
+        <li>
+          <a href="/loans.html" class="nav-link">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Loans
+          </a>
+        </li>
+        <li>
+          <a href="/payments.html" class="nav-link">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+            Payments
+          </a>
+        </li>
+        <li>
+          <a href="/calculator.html" class="nav-link">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+            Calculator
+          </a>
+        </li>
+        <li>
+          <a href="/reports.html" class="nav-link">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            Reports
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-wrapper">
+      <!-- Top Header -->
+      <header class="top-header">
+        <div class="search-box">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input type="text" id="global-search-input" placeholder="Search customer, phone, loan ID...">
+          <div id="global-search-results" class="search-results-dropdown"></div>
+        </div>
+        <div class="header-actions">
+          <button id="btn-open-chatbot" class="btn-ai-trigger">
+            <svg style="width: 18px; height: 18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            AI Assistant
+          </button>
+        </div>
+      </header>
+
+      <!-- Page Content -->
+      <div class="page-container">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Executive Dashboard</h1>
+            <p class="page-subtitle">Real-time overview of customers, loan portfolio, collections, and outstanding balances.</p>
+          </div>
+        </div>
+
+        <!-- 7 Primary Financial KPI Cards -->
+        <div class="kpi-grid">
+          <div class="kpi-card" style="--card-accent: var(--accent-indigo);">
+            <span class="kpi-label">Total Customers</span>
+            <span class="kpi-value" id="kpi-total-customers">0</span>
+            <span class="kpi-subtext">Registered Borrowers</span>
+          </div>
+          <div class="kpi-card" style="--card-accent: var(--accent-emerald);">
+            <span class="kpi-label">Active Loans</span>
+            <span class="kpi-value" id="kpi-active-loans">0</span>
+            <span class="kpi-subtext">Ongoing Contracts</span>
+          </div>
+          <div class="kpi-card" style="--card-accent: var(--accent-cyan);">
+            <span class="kpi-label">Total Amount Lent</span>
+            <span class="kpi-value" id="kpi-total-lent">₹0</span>
+            <span class="kpi-subtext">Cumulative Principal</span>
+          </div>
+          <div class="kpi-card" style="--card-accent: var(--accent-emerald);">
+            <span class="kpi-label">Total Amount Repaid</span>
+            <span class="kpi-value" id="kpi-total-repaid">₹0</span>
+            <span class="kpi-subtext">Principal + Interest Collected</span>
+          </div>
+          <div class="kpi-card" style="--card-accent: var(--accent-rose);">
+            <span class="kpi-label">Total Outstanding</span>
+            <span class="kpi-value" id="kpi-total-outstanding">₹0</span>
+            <span class="kpi-subtext">Remaining Due</span>
+          </div>
+          <div class="kpi-card" style="--card-accent: var(--accent-amber);">
+            <span class="kpi-label">Expected Interest</span>
+            <span class="kpi-value" id="kpi-expected-interest">₹0</span>
+            <span class="kpi-subtext">Projected Returns</span>
+          </div>
+          <div class="kpi-card" style="--card-accent: #10b981;">
+            <span class="kpi-label">Today's Collections</span>
+            <span class="kpi-value" id="kpi-todays-collections">₹0</span>
+            <span class="kpi-subtext">Payments Received Today</span>
+          </div>
+        </div>
+
+        <!-- Dashboard Content Grid -->
+        <div class="content-grid">
+          <!-- Overdue Payments Widget (Left 6 cols) -->
+          <div class="card-box" style="grid-column: span 6;">
+            <div class="card-box-header">
+              <h2 class="card-box-title" style="color: var(--accent-rose);">Overdue Payments</h2>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Customer</th>
+                    <th>Due Date</th>
+                    <th>Amount Due</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="table-overdue-payments">
+                  <tr><td colspan="4" style="text-align:center; color:var(--text-muted);">Loading overdue items...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Upcoming Payments Widget (Right 6 cols) -->
+          <div class="card-box" style="grid-column: span 6;">
+            <div class="card-box-header">
+              <h2 class="card-box-title">Upcoming Payments</h2>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Customer</th>
+                    <th>Due Date</th>
+                    <th>Amount Due</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="table-upcoming-payments">
+                  <tr><td colspan="4" style="text-align:center; color:var(--text-muted);">Loading upcoming items...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Recent Loans (Left 6 cols) -->
+          <div class="card-box" style="grid-column: span 6; margin-top: 1rem;">
+            <div class="card-box-header">
+              <h2 class="card-box-title">Recent Loans</h2>
+              <a href="/loans.html" class="btn btn-secondary btn-sm">View All</a>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Loan #</th>
+                    <th>Customer</th>
+                    <th>Principal</th>
+                    <th>Outstanding</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="table-recent-loans">
+                  <tr><td colspan="5" style="text-align:center; color:var(--text-muted);">Loading loans...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Recent Customers (Right 6 cols) -->
+          <div class="card-box" style="grid-column: span 6; margin-top: 1rem;">
+            <div class="card-box-header">
+              <h2 class="card-box-title">Recent Customers</h2>
+              <a href="/customers.html" class="btn btn-secondary btn-sm">View All</a>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Date Added</th>
+                  </tr>
+                </thead>
+                <tbody id="table-recent-customers">
+                  <tr><td colspan="4" style="text-align:center; color:var(--text-muted);">Loading customers...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- AI Chatbot Drawer -->
+  <div id="chat-drawer" class="chat-drawer">
+    <div class="chat-header">
+      <div class="chat-title">
+        <svg style="width: 20px; height: 20px; color: var(--accent-emerald);" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        FinAssist AI Assistant
+      </div>
+      <div style="display: flex; gap: 0.5rem;">
+        <button id="btn-clear-chat" title="Clear Chat" style="background:none; border:none; color:var(--text-muted); cursor:pointer; font-size: 0.8rem;">Clear</button>
+        <button id="btn-close-chat" class="btn-close">&times;</button>
+      </div>
+    </div>
+    <div class="chat-quick-pills">
+      <button class="chat-pill">Today's collections</button>
+      <button class="chat-pill">Overdue payments</button>
+      <button class="chat-pill">Calculate ₹50,000 at 2% for 12 months</button>
+      <button class="chat-pill">How much is remaining for customer Ravi?</button>
+    </div>
+    <div id="chat-messages-container" class="chat-messages"></div>
+    <div class="chat-input-area">
+      <input type="text" id="chat-input-field" placeholder="Ask FinAssist AI anything in natural language...">
+      <button id="btn-send-chat" class="btn btn-primary btn-sm">Send</button>
+    </div>
+  </div>
+
+  <script src="/js/app.js"></script>
+  <script src="/js/dashboard.js"></script>
+  <script src="/js/chatbot.js"></script>
+</body>
+</html>
